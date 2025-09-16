@@ -1,0 +1,91 @@
+serie:
+  - parasite: "[^0-9 ]"
+    replace: ""        # garder que les chiffres et espaces
+  - parasite: "\\\\n+"
+    replace: ""
+
+numero:
+  - parasite: "_"
+    replace: ""        # supprimer le underscore
+  - parasite: "\\\\n+"
+    replace: ""
+
+date_expiration:
+  - parasite: "(?i)expire le[:\\s]*"
+    replace: ""
+  - parasite: "\\\\n+"
+    replace: ""
+
+date_delivration:
+  - parasite: "(?i)délivrée le[:\\s]*"
+    replace: ""
+  - parasite: "\\\\n+"
+    replace: ""
+  - parasite: "Cicvréo fe:"
+    replace: ""
+  - parasite: "Délivréele:"
+    replace: ""
+
+date_lieu:
+  - parasite: "\\\\n+"
+    replace: ""
+  - parasite: "(?i)né\\(e\\) le[:\\s]*"
+    replace: ""
+  - parasite: "À"
+    replace: ","
+  - parasite: "Né(e)le:"
+    replace: ""
+  - parasite: " A "
+    replace: ","
+  - parasite: "tiojle"
+    replace: ""
+
+nom:
+  - parasite: "(?i)nom[:\\s]*"
+    replace: ""
+  - parasite: "\\\n\n"
+    replace: ""
+  - parasite: "\\\\+"
+    replace: ""
+
+prenom:
+  - parasite: "\\\\n+"
+    replace: ""
+  - parasite: "(?i)prénoms?[:\\s]*"
+    replace: ""
+
+profession:
+  - parasite: "\\\\n+"
+    replace: ""
+  - parasite: "(?i)profession[:\\s]*"
+    replace: ""
+  - parasite: "Prétesuon:"
+    replace: ""
+  - parasite: "|"
+    replace: ""
+  - parasite: "L\n\n"
+    replace: ""
+
+sexe_taille:
+  - parasite: "\\\\n+"
+    replace: ""
+  - parasite: "(?i)sexe[:\\s]*"
+    replace: ""
+  - parasite: "DANS LS D\n"
+    replace: ""
+  - parasite: "(?i)taille[:\\s]*"
+    replace: ","
+  - parasite: "SE RRS"
+    replace: ""        # cas spécifique parasite OCR
+  - parasite: "-"
+    replace: ""
+  - parasite: "em"
+    replace: ""
+  - parasite: ":"
+    replace: ""
+  - parasite: "_"
+    replace: ""
+  - parasite: "€"
+    replace: ""
+  - parasite: "!"
+    replace: ""
